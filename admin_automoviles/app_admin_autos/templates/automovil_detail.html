@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{% block content %}
+ <h2>Detalle del Automóvil</h2>
+
+ <ul class="list-group mb-3">
+   <li class="list-group-item"><strong>Marca:</strong> {{ automovil.marca }}</li>
+   <li class="list-group-item"><strong>Modelo:</strong> {{ automovil.modelo }}</li>
+   <li class="list-group-item"><strong>Año:</strong> {{ automovil.anio }}</li>
+   <li class="list-group-item"><strong>Color:</strong> {{ automovil.color }}</li>
+   <li class="list-group-item"><strong>Precio:</strong> ${{ automovil.precio }}</li>
+ </ul>
+
+ <a href="{% url 'automoviles:listar' %}" class="btn btn-secondary">Volver</a>
+ <a href="{% url 'automoviles:editar' automovil.id %}" class="btn btn-warning">Editar</a>
+ <a href="{% url 'automoviles:eliminar' automovil.id %}" class="btn btn-danger">Eliminar</a>
+{% endblock %}
