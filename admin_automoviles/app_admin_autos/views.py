@@ -1,13 +1,14 @@
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse_lazy
 from .models import Automovil
 
-class AutomovilListView(ListView):
+class AutomovilListView(LoginRequiredMixin, ListView):
     model = Automovil
     template_name ='automoviles_list.html'
     context_object_name = 'automoviles'
 
-class AutomovilDetailView(DetailView):
+class AutomovilDetailView(LoginRequiredMixin, DetailView):
     model = Automovil
     template_name = 'automovil_detail.html'
     context_object_name = 'automovil'
